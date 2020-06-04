@@ -48,3 +48,71 @@ Kept it simple and used medium.com/ google and w3 mostly as well as readings bel
 - [In Memory Database Testing](https://dev.to/paulasantamaria/testing-node-js-mongoose-with-an-in-memory-database-32np)
 - [The Repository Design Pattern](https://cubettech.com/resources/blog/introduction-to-repository-design-pattern/)
 - [mongo memory server](https://www.npmjs.com/package/mongodb-memory-server)
+
+# In Class 04 Notes 
+To solve our problems in this way: 
+    - Input
+        - need to parse, so parse with type and payload 
+        - is it good? We wrote a valid function 
+    - Execute 
+        - we want to create 
+        - to find
+        - then to delete a note 
+    - Output 
+        - display a note 
+        - display a list of notes 
+
+Input.js
+    Things to consider right away for Input.js: 
+        - export 
+        - There are two functions, we started with valid: 
+            - 
+    Things to consider for test: 
+        - import input 
+        - then describe input 
+            - valid test 
+
+npm i -D mongodb-memory-server 
+    - lets us start mongodb in our tests: 
+        - const mongoose = require('mongoose');
+        - const { MongoMemoryServer } from ('mongodb-memory-server'); 
+    - before starting tests, need to start mongo db 
+        - need to establish after describe
+            - const mongodb = new MongoMemoryServer(); 
+    - .lean takes from javascript documentation to json 
+        - cannot call .lean on .create at all 
+
+Output
+    - in index.js we need to bring in mongoose 
+        - const mongoose = require('mongoose');
+        - mongoose.connect('mongodb://localhost/:27017/notes', {
+            usenew
+        })
+
+    - bring 
+
+
+    node index.js --add "my note" wil lallow us to see in mongodb connect our notes, addes 
+
+
+Another project: 
+    In the terminal: 
+        - npm i express mongoose cors nodemon 
+        - npm i -D supertest 
+        npm i 
+    lib folder
+        - app.js 
+            -   import express and app 
+            - export our app 
+    server.js 
+        - import app 
+        - listen on any hardcoded port 
+        - import mongoose 
+        - then connect to mongodb with mongoose on localhost/shareable  
+        - 
+    - then npm run start:watch to start on the port 
+    - make a test file __test__
+        - then app.test.js 
+            - this is an integration test 
+
+
