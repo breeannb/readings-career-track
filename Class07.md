@@ -84,6 +84,13 @@
 ### Videos 
 - [express middleware explained](https://www.youtube.com/watch?v=9HOem0amlyg)
     - really appreciate this video for the visual interpretations :) 
+    - isAuthenticated() will pass to uploads 
+    - next() parameter - all middleware carries this, which is needed for passing along request to next function in chain
+    - controller.upload - last function in the chain 
+    - in this example, they made a new file and copied app.js file 
+        - app.use(body.parser())
+        - app.get
+
 ### Bookmark/Skim 
 - [using express middleware](https://expressjs.com/en/guide/using-middleware.html)
 - [express middleware](https://www.tutorialspoint.com/expressjs/expressjs_middleware.htm)
