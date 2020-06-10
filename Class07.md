@@ -98,3 +98,102 @@
 - [supertest](https://github.com/visionmedia/supertest)
 - [express middleware list](https://expressjs.com/en/resources/middleware.html)
 - [http status codes](https://www.restapitutorial.com/httpstatuscodes.html)
+
+# Class Notes: 
+
+## Continueing with Express 
+
+- Test Pyramid 
+    - Unit Test 
+        - Server Internal Functions 
+        - Mock any integrations like data fetching 
+        - Testing of a function, calling a function and making sure it returns that data 
+    - Integration 
+        - How it connects to other services 
+            - really connect to other services(hard dependencies)
+            - test integrations are connecting 
+    - Acceptance 
+        - the server might be a dependancy of some other test 
+
+- Express Pathing 
+    - can add params, anything with : in front creates a param 
+    - params can be anywhere in the url
+    - can have multiple params
+    
+- Express Router 
+    - every resource will have its own router file
+
+- Express Response Methods 
+    - res.end - end the response with text 
+        - similar to socket.end('') - takes a string and ends a response 
+    - res.json - take an object and json.stringify for us, the end the response and send json 
+    - res.send - end the response and automaticlaly figure out the type 
+        - can send res.send('text') sees it is text 
+
+- app.use(express.json())
+    - parse the incoming request data as JSON 
+
+
+- Express Middleware 
+    - just a function that is invoked between incoming request and outgoing response 
+    - cors, json body parser (express.json()) are two that we already used 
+        - cors added headers 
+        - express.json parsed req body 
+    - all of this happened before we got to our handler app.get('/', handler )
+    - ``` const myMiddleware = (req, res, next) => {};```
+        - next in this case allows us to go to the next piece of middleware 
+
+- to use middleware
+    - app.use(myMiddleware); 
+
+- apply middleware to a specific path and to a specific route
+- if middleware never sends it is the response was probably errored 
+    - express was waiting for the last middleware to end 
+
+- Error Middleware 
+    - always the last middlware that you express application needs 
+        - signature: ``` module.exports = (err, req, res, next) => {}; ```
+    - will hit whenever one of your routes throws an error.
+
+## Demo Code 
+    - In terminal: npm init @alchemycodelab 
+
+    - in Server.js 
+    - in connect.js - actual connection to mongodb 
+        - ongoose.connection - helps console log things for us 
+        - mongoose.connection.on('disconnected) - console logs 
+        - mongoose.connection('error') - console.logs error 
+        - return mongoose.connect(url, {
+            a list of configuration things 
+        })
+    - in app.js 
+        - not found middleware and error middleware 
+        - app.use('api/v1/RESOURCE) - this will be changed to our routes 
+    - server.js 
+        - has our listener 
+    - services folder 
+        - calls any external 3rd party apis 
+    - models folder 
+        - mongoose models 
+    - routes folder
+        - routes files 
+    - rename env-example to .env file 
+        MONGODB_URI=mongodb://localhost:27017/demo
+
+- Writing some middleware 
+    - in app.js Ryan wrote a simple route
+        - ```app.get('/', (req, res) => {
+            res.end('hello');
+        });```
+            - this will show on the page the word hellow 
+    - app.use((req, res, next) => {
+        console.log('i am middleware');
+        next();
+    });
+        - this middleware will trigger before the route will
+    - in between app.use(express.json()) and the app.get it will rspond 
+
+- enum: string can only be one of these strings 
+
+- models are always capitalized and singular for files etc 
+- pizzas.js is always pluralized 
