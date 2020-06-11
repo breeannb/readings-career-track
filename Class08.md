@@ -67,3 +67,31 @@
 - Populate virtuals also support counting the number of documents with matching foreignField as opposed to the documents themselves. Set the count option on your virtual
 - Populate in Middleware
 - You can populate in either pre or post hooks. If you want to always populate a certain field, check out the mongoose-autopopulate plugin.
+
+# In Class Notes: 
+
+- In Class Demo: Pizza Parlor: 
+    - ryan gave this schema a name and description 
+    - We want to set up a relationship with our Parlor schema and Pizza schema 
+        - we can decide what side holds the relationship
+        - in SQL, we were able to join tables on an id, but here we do something very similar, but can have an array of associations or ids 
+            - Ryan tries to avoid arrays 
+        - One to Many relationship - one single parlor owns many pizzas 
+    - in the Pizza.js model
+        - created a reference, when we make a reference we have to have mongoose.Schema.Types.ObjectId (the type of the object id)
+        - then add a reference
+        - so added parlor: { type: mongoose.Schema.Types.ObjectId, ref: 'Parlor', required: true}
+            - the ref Parlor has to match the module exports so in our case, the bottom of Pizza.js
+            - also make it required 
+    - Ryan refered to the reference side, as the pizza side, so essentially the one that is referencing the parlor is the reference side 
+
+    - Then we can add the .populate('parlor')
+        - go into the parlor model and find the parlor by id 
+    
+    - Virtual 
+        - schema.virtual('pizzas', {
+            ref: 'Pizza', 
+            localField: '_id', (this is the parlor id )
+            foreignField: 'parlor'(this is the parlor note within Pizza schema)
+        })
+        - not necessary but allows the pizza to associate with the Parlor Schema 
