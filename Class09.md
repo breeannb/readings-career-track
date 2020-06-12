@@ -46,3 +46,11 @@
     - Note: If you specify schema.pre('remove'), Mongoose will register this middleware for doc.remove() by default. If you want to your middleware to run on Query.remove() use schema.pre('remove', { query: true, document: false }, fn).
     - Note: Unlike schema.pre('remove'), Mongoose registers updateOne and deleteOne middleware on Query#updateOne() and Query#deleteOne() by default. This means that both doc.updateOne() and Model.updateOne() trigger updateOne hooks, but this refers to a query, not a document. To register updateOne or deleteOne middleware as document middleware, use schema.pre('updateOne', { document: true, query: false }).
     - Note: The create() function fires save() hooks.
+
+# In Class Demo 
+- Debugger 
+    - putting the line allows to stop on a certain line with a red dot in VSCode 
+    - node.js preview 
+    - then you'll be able to see all the variables that you set, such as req, res, next, this, etc 
+        - this is in the right-hand table after the highlighted portion 
+    - can also add a button within a line so that you can use 
