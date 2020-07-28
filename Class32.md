@@ -11,7 +11,7 @@
     - Call Hooks from React function components.
     - Call Hooks from custom Hooks (we’ll learn about them on the next page).
 
-# custom hooks - all you need to know](https://www.telerik.com/kendo-react-ui/react-hooks-guide/#toc-custom-react-hooks)
+# [custom hooks - all you need to know](https://www.telerik.com/kendo-react-ui/react-hooks-guide/#toc-custom-react-hooks)
 
 # [10 essential react hooks](https://blog.bitsrc.io/10-react-custom-hooks-you-should-have-in-your-toolbox-aa27d3f5564d)
 - useArray hook
