@@ -1,0 +1,31 @@
+# [MVVM Intro](https://www.tutorialspoint.com/mvvm/mvvm_introduction.htm)
+- The Model, View, ViewModel (MVVM pattern) is all about guiding you in how to organize and structure your code to write maintainable, testable and extensible applications.
+    - Model 
+        - It simply holds the data and has nothing to do with any of the business logic.
+    - ViewModel 
+        - It acts as the link/connection between the Model and View and makes stuff look pretty.
+    - View 
+        - It simply holds the formatted data and essentially delegates everything to the Model.
+- Seperate Presentation 
+    - With separated presentation, the user interface class is much simpler. It has the XAML of course, but the code behind does as little as is practical.
+    - The application logic belongs in a separate class, which is often referred to as the model.
+    - However, this is not the whole story. If you stop here, you're likely to repeat a very common mistake that will lead you down the path of data binding insanity.
+    - A lot of developers attempt to use data binding to connect elements in the XAML directly to properties in the model.
+    - Now sometimes this can be okay, but often it's not. The problem is the model is entirely concerned with matters of what the application does, and not with how the user interacts with the application.
+    - The way in which you present data is often somewhat different from how it's structured internally.
+    - Moreover, most user interfaces have some state that does not belong in the application model.
+    - For example, if your user interface uses a drag and drop, something needs to keep track of things like where the item being dragged is right now, how its appearance should change as it moves over possible drop targets, and how those drop targets might also change as the item is dragged over them.
+    - This sort of state can get surprisingly complex, and needs to be thoroughly tested.
+    - In practice, you normally want some other class sitting between the user interface and the model. This has two important roles.
+        - First, it adapts your application model for a particular user interface view.
+        - Second, it's where any nontrivial interaction logic lives, and by that, I mean code required to get your user interface to behave in the way you want.
+
+# [MVVM](https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93viewmodel)
+- Model–view–viewmodel (MVVM) is a software architectural pattern that facilitates the separation of the development of the graphical user interface (the view) – be it via a markup language or GUI code – from the development of the business logic or back-end logic (the model) so that the view is not dependent on any specific model platform.
+- Binder 
+    - Declarative data and command-binding are implicit in the MVVM pattern. In the Microsoft solution stack, the binder is a markup language called XAML.[8] The binder frees the developer from being obliged to write boiler-plate logic to synchronize the view model and view. When implemented outside of the Microsoft stack, the presence of a declarative data binding technology is what makes this pattern possible,[4][9] and without a binder, one would typically use MVP or MVC instead and have to write more boilerplate (or generate it with some other tool).
+- Rationale
+    - MVVM was designed to make use of data binding functions in WPF (Windows Presentation Foundation) to better facilitate the separation of view layer development from the rest of the pattern, by removing virtually all GUI code ("code-behind") from the view layer.
+    - The MVVM pattern attempts to gain both advantages of separation of functional development provided by MVC, while leveraging the advantages of data bindings and the framework by binding data as close to the pure application model as possible.
+- Criticism 
+    - A criticism of the pattern comes from MVVM creator John Gossman himself,[12] who points out that the overhead in implementing MVVM is "overkill" for simple UI operations. 
